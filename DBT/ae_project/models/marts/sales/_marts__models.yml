@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: dim_customer
+    description: Customer dimension table. 
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - customer_id
+            - _AIRBYTE_EXTRACTED_AT
+    columns:
+    - name: customer_sk
+      description: Surrogate key for customer. 
+      data_tests: 
+        - not_null
+    - name: current_addr_sk
+      description: surrogate key for address.
+      data_tests: 
+        - not_null
+        - relationships:
+            to: ref('stg_tpcds__customer_address') 
+            field: address_sk
+    - name: CURRENT_CDEMO_SK
+      description: surrogate key for customer demographics. 
+      data_tests: 
+        - not_null
+        - relationships:
+            to: ref('stg_tpcds__customer_demographics') 
+            field: demo_sk
+    - name: CURRENT_HDEMO_SK
+      description: surrogate key for household demographics. 
+      data_tests: 
+        - not_null
+        - relationships:
+            to: ref('stg_tpcds__household_demographics') 
+            field: demo_sk
+    - name: HH_INCOME_BAND_SK
+      description: surrogate key for income band. 
+      data_tests: 
+        - not_null
+        - relationships:
+            to: ref('stg_tpcds__household_demographics') 
+            field: INCOME_BAND_SK
+
+
+

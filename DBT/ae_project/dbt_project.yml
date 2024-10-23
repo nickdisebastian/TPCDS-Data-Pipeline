@@ -1,0 +1,30 @@
+
+name: 'ae_project'
+version: '1.0.0'
+
+profile: 'ae_project'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  ae_project:
+    staging:
+      +materialized: view
+      +database: tpcds
+      +schema: staging
+    intermediate:
+      +materialized: table
+      +database: tpcds
+      +schema: intermediate
+    marts:
+      +materialized: table
+      +schema: marts
