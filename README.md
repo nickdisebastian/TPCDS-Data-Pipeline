@@ -2,7 +2,7 @@
 An end-to-end, learning-based data engineering project.
 
 ## Description
-This project uses is the final project for Phase 1 of WeCloudData's Data Engineering Bootcamp. It uses a sample dataset, TPCDS, to build an ELT process and result in a simple BI dashboard. The source data is in two locations: 1. An AWS Postgres RDS, and 2. A csv in an AWS S3 bucket. The data is transferred to Snowflake using AirByte and an AWS Lambda function. The data is transformed using DBT, and is visualized using MetaBase. 
+This project is the final project for Phase 1 of WeCloudData's Data Engineering Bootcamp. It uses a sample dataset, TPCDS, to build an ELT process and result in a simple BI dashboard. The source data is in two locations: 1. An AWS Postgres RDS, and 2. A csv in an AWS S3 bucket. The data is transferred to Snowflake using AirByte and an AWS Lambda function. The data is transformed using DBT, and is visualized using MetaBase. 
 
 AirByte, DBT, and MetaBase are all set up on AWS EC2 instances. 
 
